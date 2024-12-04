@@ -1,0 +1,6 @@
+export { default as AuthBold } from './bold'
+export { default as AuthColumn } from './column'
+export { default as AuthCover } from './cover'
+export { default as AuthPlain } from './plain'
+export { default as AuthSidebar} from './sidebar'
+export { default as AuthSimple } from './simple'
