@@ -2,7 +2,7 @@ import { Head } from '@components/index'
 import { BrandName } from '@src/constants'
 import { Navbar, Header, Features, AuthPages, LayoutPages, Footer } from './components'
 
-export default function Home () {
+export default function HomeTemplate () {
     return (
         <>
             <Head>

@@ -1,1 +1,1 @@
-export const BrandName = 'Life Linker'
+export const BrandName = 'LifeLoom'

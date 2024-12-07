@@ -40,7 +40,7 @@ export default function LoginPage () {
                         </VStack>
                         <Text mt='3' fontWeight="medium" textAlign="center" onClick={() => navigate('/registro')}>
                             Você é novo aqui?{' '}
-                            <Link href="#" color="pink.500">Crie sua conta</Link>
+                            <Link href="/registro" color="pink.500">Crie sua conta</Link>
                         </Text>
                     </VStack>
                 </Box>

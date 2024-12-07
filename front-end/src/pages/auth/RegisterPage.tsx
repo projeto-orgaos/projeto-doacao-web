@@ -58,7 +58,7 @@ export default function RegisterPage() {
               </VStack>
               <Text mt='3' fontWeight="medium" textAlign="center">
                 Já possui cadastro?{' '}
-                <Link href="#" color="green.500">Faça login</Link>
+                <Link href='/login' color="green.500">Faça login</Link>
               </Text>
             </VStack>
           </Box>
