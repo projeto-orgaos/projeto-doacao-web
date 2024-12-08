@@ -1,4 +1,11 @@
-import { AiOutlineHome, AiOutlineSetting, AiOutlineUserSwitch } from 'react-icons/ai'
+import { HiMiniHome } from "react-icons/hi2";
+import { BiSolidUserCircle } from "react-icons/bi";
+import { RiUserReceivedFill, RiUserShared2Fill } from "react-icons/ri";
+import { GiHeartOrgan } from "react-icons/gi";
+import { FaHospital } from "react-icons/fa";
+
+
+
 
 export type ListItem = {
   text?: string
@@ -9,32 +16,32 @@ export type ListItem = {
 export const listItems: ListItem[] = [
   {
     text: 'Dashboard',
-    icon: AiOutlineHome,
+    icon: HiMiniHome,
     path: '/home'
   },
   {
     text: 'Orgãos',
-    icon: AiOutlineUserSwitch,
+    icon: GiHeartOrgan,
     path: '/orgaos'
   },
   {
     text: 'Doadores',
-    icon: AiOutlineSetting,
+    icon: RiUserShared2Fill,
     path: '/doadores'
   },
   {
     text: 'Receptores',
-    icon: AiOutlineSetting,
+    icon: RiUserReceivedFill,
     path: '/receptores'
   },
   {
     text: 'Usuários',
-    icon: AiOutlineUserSwitch,
+    icon: BiSolidUserCircle,
     path: '/usuarios'
   },
   {
     text: 'Hospitais',
-    icon: AiOutlineUserSwitch,
+    icon: FaHospital,
     path: '/hospitais'
   },
 ]

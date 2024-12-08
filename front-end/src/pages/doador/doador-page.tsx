@@ -7,7 +7,7 @@ import {
     IconButton,
   } from "@chakra-ui/react";
   import { DataTable } from "@src/components/table/table";
-  import { FiEdit, FiEye, FiTrash } from "react-icons/fi";
+  import { FiEye } from "react-icons/fi";
 import { Link } from "react-router-dom";
   
   type Donor = {
