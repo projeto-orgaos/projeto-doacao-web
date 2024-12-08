@@ -13,13 +13,28 @@ export const listItems: ListItem[] = [
     path: '/home'
   },
   {
+    text: 'Orgãos',
+    icon: AiOutlineUserSwitch,
+    path: '/orgaos'
+  },
+  {
     text: 'Doadores',
     icon: AiOutlineSetting,
     path: '/doadores'
   },
   {
-    text: 'Orgãos',
+    text: 'Receptores',
+    icon: AiOutlineSetting,
+    path: '/receptores'
+  },
+  {
+    text: 'Usuários',
     icon: AiOutlineUserSwitch,
-    path: '/orgaos'
+    path: '/usuarios'
+  },
+  {
+    text: 'Hospitais',
+    icon: AiOutlineUserSwitch,
+    path: '/hospitais'
   },
 ]

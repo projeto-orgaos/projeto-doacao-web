@@ -3,7 +3,7 @@ import { useDisclosure } from '@chakra-ui/react'
 import { Navbar } from '@src/components/nav/navbar';
 import { listItems } from '@src/components/nav/navItens';
 import { ReactNode } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export function MainLayout({ children }: { children: ReactNode }) {
   const { getButtonProps, isOpen } = useDisclosure()
@@ -46,22 +46,32 @@ interface ListElementProps {
   path: string;
 }
 
-const ListElement = ({ icon, text, path}: ListElementProps) => {
+const ListElement = ({ icon, text, path }: ListElementProps) => {
+  const location = useLocation();
+  const isActive = location.pathname === path;
+  const bgColor = useColorModeValue('blue.100', 'blue.700');
+  const hoverBgColor = useColorModeValue('gray.50', 'gray.700');
+  const borderColor = useColorModeValue('blue.500', 'blue.300');
+  const iconColor = useColorModeValue('blue.600', 'blue.200');
+
   return (
     <Link to={path}>
-    <Box
-      as="li"
-      display="flex"
-      alignItems="center"
-      h="10"
-      pl="2.5"
-      cursor="pointer"
-      _hover={{ bg: useColorModeValue('gray.50', 'gray.700') }}
-      rounded="md"
-    >
-      <Box as={icon} boxSize={5} mr={text ? 2 : 0}/>
-      {text}
-    </Box>
+      <Box
+        as="li"
+        display="flex"
+        alignItems="center"
+        h="10"
+        pl="2.5"
+        cursor="pointer"
+        bg={isActive ? bgColor : 'transparent'}
+        _hover={{ bg: hoverBgColor }}
+        rounded="md"
+        border={isActive ? '1px solid' : 'none'}
+        borderColor={isActive ? borderColor : 'transparent'}
+      >
+        <Box as={icon} boxSize={5} mr={text ? 2 : 0} color={isActive ? iconColor : 'inherit'} />
+        {text}
+      </Box>
     </Link>
-  )
-}
+  );
+};
