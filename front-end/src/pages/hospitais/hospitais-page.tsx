@@ -61,7 +61,6 @@ import { Link } from "react-router-dom";
               as={Link}
               to="/registrar-hospital"
               colorScheme="teal"
-              size="sm"
             >
               Novo Hospital
             </Button>

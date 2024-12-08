@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -8,7 +8,6 @@ import {
   Input,
   Grid,
   Heading,
-  Select,
 } from "@chakra-ui/react";
 import { MainLayout } from "@src/layout/mainLayout";
 import { useNavigate } from "react-router-dom";
@@ -16,9 +15,6 @@ import { useNavigate } from "react-router-dom";
 export default function RegisterOrgaoPage() {
   const navigate = useNavigate();
 
-  const [donors, setDonor] = useState<{ id: string; name: string }[]>([]);
-
-  const [hospitals, setHospitals] = useState<{ id: string; name: string }[]>([]);
 
   const [formData, setFormData] = useState({
     organ_type: "",
@@ -27,32 +23,6 @@ export default function RegisterOrgaoPage() {
     hospital_id: "",
     donor_id: "",
   });
-
-  useEffect(() => {
-    // Simulação de uma API para obter os hospitais
-    const fetchHospitals = async () => {
-      const hospitalData = [
-        { id: "1", name: "Hospital A" },
-        { id: "2", name: "Hospital B" },
-        { id: "3", name: "Hospital C" },
-      ];
-      setHospitals(hospitalData);
-    };
-    fetchHospitals();
-  }, []);
-
-  useEffect(() => {
-    // Simulação de uma API para obter os doadores
-    const fetchDonors = async () => {
-      const donorData = [
-        { id: "1", name: "Doador A" },
-        { id: "2", name: "Doador B" },
-        { id: "3", name: "Doador C" },
-      ];
-      setDonor(donorData);
-    };
-    fetchDonors();
-  }, []);
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -71,7 +41,7 @@ export default function RegisterOrgaoPage() {
   };
 
   const handleCancel = () => {
-    navigate("/orgaos");
+    navigate("/tipos-orgaos");
   };
 
   return (
@@ -98,39 +68,6 @@ export default function RegisterOrgaoPage() {
                 value={formData.organ_type}
                 onChange={handleInputChange}
               />
-            </FormControl>
-
-             {/* Seleção de Hospital */}
-            <FormControl gridColumn="span 4">
-              <FormLabel>Hospital</FormLabel>
-              <Select
-                placeholder="Selecione um hospital"
-                name="hospital_id"
-                value={formData.hospital_id}
-                onChange={handleInputChange}
-              >
-                {hospitals.map((hospital) => (
-                  <option key={hospital.id} value={hospital.id}>
-                    {hospital.name}
-                  </option>
-                ))}
-              </Select>
-            </FormControl>
-             {/* Seleção de Doadores */}
-            <FormControl gridColumn="span 4">
-              <FormLabel>Doadores</FormLabel>
-              <Select
-                placeholder="Selecione um Doador"
-                name="donor_id"
-                value={formData.donor_id}
-                onChange={handleInputChange}
-              >
-                {donors.map((donor) => (
-                  <option key={donor.id} value={donor.id}>
-                    {donor.name}
-                  </option>
-                ))}
-              </Select>
             </FormControl>
 
             {/* Limite de Distância */}

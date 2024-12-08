@@ -14,26 +14,23 @@ import { Link } from "react-router-dom";
   type Orgaos = {
     id: number;
     orgao_type: string;
-    user_type: string;
+    status: string;
     expiration_date: Date;
     distance_limit: number;
     hospital_id: number;
-    user_id: number;
+    donor_id: number;
   };
   
   const orgaos: Orgaos[] = [
-    { id: 1, orgao_type: "Coração", user_type:'Doador', expiration_date: new Date("2022-12-31"), distance_limit: 100, hospital_id: 1, user_id: 1 },
-    { id: 2, orgao_type: "Fígado", user_type:'Receptor', expiration_date: new Date("2022-12-31"), distance_limit: 100, hospital_id: 1, user_id: 2 },
-    { id: 3, orgao_type: "Pulmão", user_type:'Doador', expiration_date: new Date("2022-12-31"), distance_limit: 100, hospital_id: 1, user_id: 3 },
+    { id: 1, orgao_type: "Coração", status: "Disponível", expiration_date: new Date("2022-12-31"), distance_limit: 100, hospital_id: 1, donor_id: 1 },
+    { id: 2, orgao_type: "Fígado", status: "Disponível", expiration_date: new Date("2022-12-31"), distance_limit: 100, hospital_id: 1, donor_id: 2 },
+    { id: 3, orgao_type: "Pulmão", status: "Disponível", expiration_date: new Date("2022-12-31"), distance_limit: 100, hospital_id: 1, donor_id: 3 },
   ];
   
   const columns: Array<{ header: string; accessor?: keyof Orgaos; render?: (row: Orgaos) => JSX.Element }> = [
     { header: "Orgão", accessor: "orgao_type" },
-    { header: "Usuário", accessor: "user_id" },
-    { header: "Hospital", accessor: "hospital_id" },
     { header: "Limite de Distância", accessor: "distance_limit" },
     { header: "Data de Expiração", accessor: "expiration_date" },
-    { header: "Tipo de Usuário", accessor: "user_type" },
     {
       header: "Ações", render: (row) => (
         <HStack>
@@ -49,20 +46,20 @@ import { Link } from "react-router-dom";
     },
   ];
   
-  export default function OrgaosPage() {
+  export default function TiposOrgaosPage() {
     return (
     <MainLayout>
       <Flex minH="100vh" p={4}>
         <Box as="main" flex="1">
         <Flex justifyContent="space-between" alignItems="center" mb={4}>
-          <Text fontSize="2xl" mb={4}>Orgãos</Text>
-          <Button
-            as={Link}
-            to="/tipos-orgaos"
+          <Text fontSize="2xl" mb={4}>Tipos de Orgãos</Text>
+            <Button
+              as={Link}
+              to="/registrar-orgao"
+              colorScheme="teal"
             >
-            Tipos de Orgãos
+              Novo Orgão
             </Button>
-      
           </Flex>
           <DataTable columns={columns} data={orgaos} />
         </Box>

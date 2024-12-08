@@ -64,7 +64,6 @@ import { Link } from "react-router-dom";
               as={Link}
               to="/registrar-usuario"
               colorScheme="teal"
-              size="sm"
             >
               Novo Usuário
             </Button>

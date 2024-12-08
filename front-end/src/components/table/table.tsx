@@ -7,6 +7,7 @@ import {
   Th,
   Td,
   TableContainer,
+  Box,
 } from "@chakra-ui/react";
 
 type Column<T> = {
@@ -18,9 +19,14 @@ type Column<T> = {
 type DataTableProps<T> = {
   columns: Column<T>[]; // Array de colunas
   data: T[]; // Array de dados genéricos
+  headerText?: string; // Texto opcional para o cabeçalho
 };
 
-export const DataTable = <T,>({ columns, data }: DataTableProps<T>) => {
+export const DataTable = <T,>({
+  columns,
+  data,
+  headerText,
+}: DataTableProps<T>) => {
   // Função para verificar se um valor é uma data válida e formatá-la
   const formatDate = (value: unknown): string | unknown => {
     if (value instanceof Date) {
@@ -34,30 +40,53 @@ export const DataTable = <T,>({ columns, data }: DataTableProps<T>) => {
   };
 
   return (
-    <TableContainer>
-      <Table variant="striped" colorScheme="teal">
-        <Thead>
-          <Tr>
-            {columns.map((column, index) => (
-              <Th key={index}>{column.header}</Th>
-            ))}
-          </Tr>
-        </Thead>
-        <Tbody>
-          {data.map((row, rowIndex) => (
-            <Tr key={rowIndex}>
-              {columns.map((column, colIndex) => (
-                <Td key={`${rowIndex}-${colIndex}`}>
-                  {column.accessor
-                    ? // Verifica e formata a data
-                      (formatDate(row[column.accessor]) as React.ReactNode)
-                    : column.render?.(row)}
-                </Td>
+    <Box
+      bg="white"
+      boxShadow="md"
+      borderRadius="lg"
+      overflowX="auto"
+    >
+      <TableContainer>
+        <Table variant="simple">
+          <Thead>
+            {headerText && (
+              <Tr>
+                <Th
+                  colSpan={columns.length}
+                  bg="teal.500"
+                  color="white"
+                  textAlign="center"
+                  fontSize="lg"
+                  fontWeight="bold"
+                  py={4}
+                >
+                  {headerText}
+                </Th>
+              </Tr>
+            )}
+            <Tr bg="gray.100">
+              {columns.map((column, index) => (
+                <Th key={index} textTransform="uppercase" fontSize="sm">
+                  {column.header}
+                </Th>
               ))}
             </Tr>
-          ))}
-        </Tbody>
-      </Table>
-    </TableContainer>
+          </Thead>
+          <Tbody>
+            {data.map((row, rowIndex) => (
+              <Tr key={rowIndex} borderBottom="1px solid" borderColor="gray.200">
+                {columns.map((column, colIndex) => (
+                  <Td key={`${rowIndex}-${colIndex}`} py={2}>
+                    {column.accessor
+                      ? (formatDate(row[column.accessor]) as React.ReactNode)
+                      : column.render?.(row)}
+                  </Td>
+                ))}
+              </Tr>
+            ))}
+          </Tbody>
+        </Table>
+      </TableContainer>
+    </Box>
   );
 };

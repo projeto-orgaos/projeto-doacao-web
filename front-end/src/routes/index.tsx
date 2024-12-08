@@ -20,6 +20,7 @@ import EditUserPage from '@src/pages/users/editar-usuario'
 import EditHospitalPage from '@src/pages/hospitais/editar-hospital'
 import ReceptoresDetailPage from '@src/pages/receptor/detalhes-receptores'
 import DoadoresDetailsPage from '@src/pages/doador/detalhes-doador'
+import TiposOrgaosPage from '@src/pages/orgaos/tipos-orgaos-page'
 
 
 const router = createBrowserRouter([
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
     {
         path: '/orgaos',
         element: <OrgaosPage />
+    },
+    {
+        path: '/tipos-orgaos',
+        element: <TiposOrgaosPage />
     },
     {
         path: '/registrar-orgao',
