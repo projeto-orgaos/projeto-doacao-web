@@ -2,6 +2,8 @@
 
 Bem-vindo ao **LifeLoom**, uma aplicação para gerenciar doações e recepções de órgãos. Este projeto utiliza **React 18**, **TypeScript** e **Chakra UI** para criar uma interface de usuário moderna, responsiva e acessível.
 
+Projeto publicado em: https://lifeloomweb.vercel.app/login
+
 ## Índice
 
 - [Pré-requisitos](#pré-requisitos)
