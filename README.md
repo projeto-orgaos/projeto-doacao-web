@@ -11,6 +11,7 @@ Projeto publicado em: https://lifeloomweb.vercel.app/login
 - João Victor Guimarães Santos - 2212057
 - João Marcos Fleury - 2211142
 - Marcos Vinícius Silva Andrade - 2210372
+- Vanessa Nassar Aji - 2311987
 
 ## Índice
 
