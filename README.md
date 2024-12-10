@@ -4,6 +4,14 @@ Bem-vindo ao **LifeLoom**, uma aplicação para gerenciar doações e recepçõe
 
 Projeto publicado em: https://lifeloomweb.vercel.app/login
 
+- Emilly Eduarda Bitencourt Cardoso - 2210568
+- Edwin Nichollas Rocha Medina - 221152
+- Felipe Brian Marques Gonçalves - 2210360
+- João Vitor Luiz Soares Silva - 2212349 
+- João Victor Guimarães Santos - 2212057
+- João Marcos Fleury - 2211142
+- Marcos Vinícius Silva Andrade - 2210372
+
 ## Índice
 
 - [Pré-requisitos](#pré-requisitos)
