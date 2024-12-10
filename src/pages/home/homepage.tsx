@@ -16,6 +16,7 @@ import {
 import { MainLayout } from "@src/layout/mainLayout";
 import { axiosInstanceAuthenticated } from "@src/api/api";
 import { getStatusText } from "@src/utils/status.enum";
+import { useNavigate } from "react-router-dom";
 
 type OrganType = {
   id: number;
@@ -36,6 +37,7 @@ export default function Home() {
   const [organs, setOrgans] = useState<Organ[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const toast = useToast();
+  const navigate = useNavigate();
 
   const bgMain = useColorModeValue("white", "gray.800");
 
@@ -47,7 +49,16 @@ export default function Home() {
         const userId = user?.id;
         console.log(userId);
         if (!userId) {
-          throw new Error("Usuário não encontrado no localStorage.");
+          console.error("Usuário não encontrado no localStorage.");
+          toast({
+            title: "Erro ao carregar usuário",
+            description: "Usuário não encontrado no localStorage.",
+            status: "error",
+            duration: 3000,
+            isClosable: true,
+          })
+          navigate("/login");
+          return;
         }
 
         // Faz a chamada para buscar os órgãos do usuário
