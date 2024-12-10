@@ -15,7 +15,6 @@ import {
 import { FiTrash } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { IOrgan } from "@src/api/types";
 import { axiosInstanceAuthenticated } from "@src/api/api";
 

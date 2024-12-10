@@ -19,7 +19,7 @@ import {
   import { useNavigate } from 'react-router-dom';
   import { useState } from 'react';
   import { axiosInstanceUnauthenticated } from '@src/api/api';
-  import { LoginResponse } from '@src/types';
+  import { LoginResponse } from '@src/api/types';
   
   export default function LoginPage() {
     const navigate = useNavigate();

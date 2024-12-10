@@ -76,7 +76,7 @@ export default function RegisterOrgaoPage() {
 
     try {
       setIsSubmitting(true);
-      const response = await axiosInstanceAuthenticated.post("/organ-types", formData);
+      await axiosInstanceAuthenticated.post("/organ-types", formData);
       toast({
         title: "Tipo de órgão registrado com sucesso!",
         status: "success",
@@ -201,6 +201,7 @@ export default function RegisterOrgaoPage() {
                   { label: "AB-", value: "AB-", colorScheme: "pink" },
                 ]}
                 onChange={(selectedOptions) =>
+                  //@ts-expect-error selectedOptions é um array de objetos
                   handleBloodTypeChange(selectedOptions as Array<{ value: string }>)
                 }
               />

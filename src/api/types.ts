@@ -28,31 +28,7 @@ export interface IProfile {
     status: string;
     message: string;
     access_token: string;
-    user: {
-      id: number;
-      name: string;
-      email: string;
-      cpf: string;
-      birth_date: string;
-      gender: string;
-      mother_name: string | null;
-      previous_diseases: string | null;
-      email_verified_at: string | null;
-      profile_id: number;
-      phone: string;
-      blood_type: string | null;
-      address_id: number;
-      created_at: string;
-      updated_at: string;
-      deleted_at: string | null;
-      profile: {
-        id: number;
-        description: string;
-        created_at: string | null;
-        updated_at: string | null;
-        deleted_at: string | null;
-      };
-    };
+    user: IUser;
   }
   
 

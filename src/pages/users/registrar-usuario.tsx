@@ -13,7 +13,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { MainLayout } from "@src/layout/mainLayout";
-import { Form, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { axiosInstanceAuthenticated } from "@src/api/api";
 
 export default function RegisterUserPage() {
