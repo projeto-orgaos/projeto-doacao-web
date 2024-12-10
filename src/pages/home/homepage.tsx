@@ -49,10 +49,10 @@ export default function Home() {
         const userId = user?.id;
         console.log(userId);
         if (!userId) {
-          console.error("Usuário não encontrado no localStorage.");
+          console.error("Usuário não encontrado, fazendo logout.");
           toast({
             title: "Erro ao carregar usuário",
-            description: "Usuário não encontrado no localStorage.",
+            description: "Usuário não encontrado, faça login novamente.",
             status: "error",
             duration: 3000,
             isClosable: true,
