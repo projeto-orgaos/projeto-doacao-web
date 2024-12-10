@@ -40,6 +40,8 @@ Acesse o diretório do projeto:
 cd lifeloom-frontend
 ```
 
+Copie e preencha as variavels de ambientes da .env
+
 Instale as dependências do projeto:
 
 ```bash
