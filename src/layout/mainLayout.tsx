@@ -3,8 +3,7 @@ import {
   Button,
   List,
   useColorModeValue,
-  Tooltip,
-  Spinner,
+  Tooltip
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useDisclosure } from "@chakra-ui/react";
