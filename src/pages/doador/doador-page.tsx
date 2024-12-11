@@ -58,7 +58,9 @@ export default function DoadoresPage() {
       } catch (error: any) {
         toast({
           title: "Erro ao carregar doadores",
-          description: error.response?.data?.message || "Não foi possível carregar os dados.",
+          description:
+            error.response?.data?.message ||
+            "Não foi possível carregar os dados.",
           status: "error",
           duration: 3000,
           isClosable: true,
@@ -93,13 +95,19 @@ export default function DoadoresPage() {
     setFilteredDonors(filtered);
   };
 
-  const columns: Array<{ header: string; accessor?: keyof Donor; render?: (row: Donor) => JSX.Element }> = [
+  const columns: Array<{
+    header: string;
+    accessor?: keyof Donor;
+    render?: (row: Donor) => JSX.Element;
+  }> = [
     { header: "Nome", accessor: "name" },
     { header: "Email", accessor: "email" },
     { header: "Telefone", accessor: "phone" },
     {
       header: "Gênero",
-      render: (row) => <Text>{row.gender === "male" ? "Masculino" : "Feminino"}</Text>,
+      render: (row) => (
+        <Text>{row.gender === "male" ? "Masculino" : "Feminino"}</Text>
+      ),
     },
     { header: "Tipo Sanguíneo", accessor: "blood_type" },
     {
@@ -129,7 +137,7 @@ export default function DoadoresPage() {
 
   return (
     <MainLayout>
-      <Flex minH="100vh" p={4} direction="column" gap={4}>
+      <Flex minH="85vh" p={4} direction="column" gap={4}>
         <Flex justifyContent="space-between" alignItems="center">
           <Text fontSize="2xl">Doadores</Text>
         </Flex>

@@ -3,7 +3,6 @@ import { BiSolidUserCircle } from "react-icons/bi";
 import { RiUserReceivedFill, RiUserShared2Fill } from "react-icons/ri";
 import { GiHeartOrgan } from "react-icons/gi";
 import { FaHospital } from "react-icons/fa";
-
 export type ListItem = {
   text?: string;
   icon: React.ElementType;

@@ -83,7 +83,7 @@ export default function HospitaisPage() {
 
   return (
     <MainLayout>
-      <Flex minH="100vh" p={4} direction="column">
+      <Flex minH="85vh" p={4} direction="column">
         <Flex justifyContent="space-between" alignItems="center" mb={4}>
           <Text fontSize="2xl" fontWeight="bold">
             Hospitais

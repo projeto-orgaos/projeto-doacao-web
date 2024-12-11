@@ -24,8 +24,6 @@ import { MainLayout } from "@src/layout/mainLayout";
 import { axiosInstanceAuthenticated } from "@src/api/api";
 import { IUser } from "@src/api/types";
 
-
-
 export default function UsersPage() {
   const [users, setUsers] = useState<IUser[]>([]);
   const [filteredUsers, setFilteredUsers] = useState<IUser[]>([]);
@@ -59,12 +57,12 @@ export default function UsersPage() {
     const value = event.target.value.toLowerCase();
     setSearchTerm(value);
     setFilteredUsers(
-      users.filter((user) =>
-        user.name.toLowerCase().includes(value) ||
-        user.email.toLowerCase().includes(value) ||
-        user.phone.toLowerCase().includes(value) ||
-        user.profile.description.toLowerCase().includes(value) // Adiciona a busca por tipo de usuário
-
+      users.filter(
+        (user) =>
+          user.name.toLowerCase().includes(value) ||
+          user.email.toLowerCase().includes(value) ||
+          user.phone.toLowerCase().includes(value) ||
+          user.profile.description.toLowerCase().includes(value) // Adiciona a busca por tipo de usuário
       )
     );
   };
@@ -93,7 +91,7 @@ export default function UsersPage() {
 
   return (
     <MainLayout>
-      <Flex minH="100vh" p={4} direction="column">
+      <Flex minH="85vh" p={4} direction="column">
         <Flex justifyContent="space-between" alignItems="center" mb={4}>
           <Text fontSize="2xl" fontWeight="bold">
             Usuários

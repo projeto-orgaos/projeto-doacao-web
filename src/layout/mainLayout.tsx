@@ -1,22 +1,37 @@
-import { Box, Button, List, useColorModeValue } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  List,
+  useColorModeValue,
+  Tooltip,
+  Spinner,
+} from "@chakra-ui/react";
+import { useState } from "react";
 import { useDisclosure } from "@chakra-ui/react";
 import { Navbar } from "@src/components/nav/navbar";
 import { listItems } from "@src/components/nav/navItens";
 import { ReactNode } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { IoIosExit } from "react-icons/io";
 
 export function MainLayout({ children }: { children: ReactNode }) {
   const { isOpen, onToggle } = useDisclosure();
   const navigate = useNavigate();
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
 
-  const handleLogout = () => {
-    localStorage.removeItem("user_data"); // Limpa os dados de autenticação
-    navigate("/login"); // Redireciona para a página de login
+  const handleLogout = async () => {
+    setIsLoggingOut(true);
+    setTimeout(() => {
+      localStorage.removeItem("user_data"); // Limpa os dados de autenticação
+      navigate("/login"); // Redireciona para a página de login
+    }, 1000);
   };
 
   return (
     <>
-      <Navbar buttonProps={{ onClick: onToggle, "aria-label": "Toggle Navigation" }} />
+      <Navbar
+        buttonProps={{ onClick: onToggle, "aria-label": "Toggle Navigation" }}
+      />
       <Box pt="16" display="flex" flexDir="row" width="full" minH="100vh">
         <Box
           as="aside"
@@ -39,19 +54,28 @@ export function MainLayout({ children }: { children: ReactNode }) {
               />
             ))}
           </List>
-          <Box p={4}>
+          <Tooltip label="Sair" placement="right" hasArrow>
             <Button
               onClick={handleLogout}
-              w="full"
-              variant="ghost"
+              isLoading={isLoggingOut}
+              loadingText="Saindo..."
+              leftIcon={!isLoggingOut ? <IoIosExit /> : undefined}
               colorScheme="red"
-              size="lg"
+              variant="solid"
+              size="sm"
+              mx={"2"}
+              mb={"4"}
             >
-              Sair
+              {isOpen && !isLoggingOut ? "Sair" : isLoggingOut && "Saindo..."}
             </Button>
-          </Box>
+          </Tooltip>
         </Box>
-        <Box as="main" flex="1" bg={useColorModeValue("gray.50", "gray.900")} p="4">
+        <Box
+          as="main"
+          flex="1"
+          bg={useColorModeValue("gray.50", "gray.900")}
+          p="4"
+        >
           {children}
         </Box>
       </Box>
@@ -88,7 +112,12 @@ const ListElement = ({ icon, text, path }: ListElementProps) => {
         border={isActive ? "1px solid" : "none"}
         borderColor={isActive ? borderColor : "transparent"}
       >
-        <Box as={icon} boxSize={5} mr={text ? 2 : 0} color={isActive ? iconColor : "inherit"} />
+        <Box
+          as={icon}
+          boxSize={5}
+          mr={text ? 2 : 0}
+          color={isActive ? iconColor : "inherit"}
+        />
         {text}
       </Box>
     </Link>

@@ -127,7 +127,7 @@ export default function EditHospitalPage() {
   if (loading) {
     return (
       <MainLayout>
-        <Flex justifyContent="center" alignItems="center" minH="100vh">
+        <Flex justifyContent="center" alignItems="center" minH="85vh">
           <Spinner size="xl" />
         </Flex>
       </MainLayout>

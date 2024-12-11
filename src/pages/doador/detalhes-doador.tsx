@@ -81,7 +81,7 @@ export default function DoadoresDetailsPage() {
   if (loading) {
     return (
       <MainLayout>
-        <Flex justifyContent="center" alignItems="center" minH="100vh">
+        <Flex justifyContent="center" alignItems="center" minH="85vh">
           <Spinner size="xl" />
         </Flex>
       </MainLayout>
@@ -102,11 +102,22 @@ export default function DoadoresDetailsPage() {
     <MainLayout>
       <Box p={6}>
         {/* Card com informações do doador */}
-        <Box bg="blue.500" color="white" p={6} borderRadius="md" boxShadow="lg" mb={6}>
+        <Box
+          bg="blue.500"
+          color="white"
+          p={6}
+          borderRadius="md"
+          boxShadow="lg"
+          mb={6}
+        >
           <Heading size="lg" mb={4}>
             {donor.name}
           </Heading>
-          <Box display="grid" gridTemplateColumns={{ base: "1fr", md: "1fr 1fr" }} gap={4}>
+          <Box
+            display="grid"
+            gridTemplateColumns={{ base: "1fr", md: "1fr 1fr" }}
+            gap={4}
+          >
             <VStack align="start" spacing={2}>
               <HStack>
                 <Text fontWeight="bold">Email:</Text>
@@ -118,7 +129,9 @@ export default function DoadoresDetailsPage() {
               </HStack>
               <HStack>
                 <Text fontWeight="bold">Gênero:</Text>
-                <Text>{donor.gender === "male" ? "Masculino" : "Feminino"}</Text>
+                <Text>
+                  {donor.gender === "male" ? "Masculino" : "Feminino"}
+                </Text>
               </HStack>
             </VStack>
             <VStack align="start" spacing={2}>
@@ -141,7 +154,13 @@ export default function DoadoresDetailsPage() {
         </Box>
 
         {/* Tabela de órgãos disponíveis para doação */}
-        <Box p={6} borderWidth="1px" borderRadius="md" boxShadow="sm" bg="white">
+        <Box
+          p={6}
+          borderWidth="1px"
+          borderRadius="md"
+          boxShadow="sm"
+          bg="white"
+        >
           <Flex justifyContent="space-between" alignItems="center" mb={4}>
             <Heading size="md">Órgãos Disponíveis para Doação</Heading>
             <Button onClick={onOpen} colorScheme="blue" size="sm">
@@ -175,12 +194,9 @@ export default function DoadoresDetailsPage() {
                         }
                       >
                         {getStatusText(organ.status)}
-                    
                       </Badge>
                     </Td>
-                    <Td>
-                      {fDateTime(organ.expiration_date)}  
-                    </Td>
+                    <Td>{fDateTime(organ.expiration_date)}</Td>
                     <Td>{organ.type.is_post_mortem ? "Sim" : "Não"}</Td>
                   </Tr>
                 ))}

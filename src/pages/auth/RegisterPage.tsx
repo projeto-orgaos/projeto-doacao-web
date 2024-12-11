@@ -83,7 +83,8 @@ export default function RegisterPage() {
       toast({
         title: "Erro no cadastro",
         description:
-          error.response?.data?.message || "Erro ao tentar registrar o usuário.",
+          error.response?.data?.message ||
+          "Erro ao tentar registrar o usuário.",
         status: "error",
         duration: 3000,
         isClosable: true,
@@ -97,7 +98,7 @@ export default function RegisterPage() {
         <title>Registro | {BrandName}</title>
       </Head>
       <Container maxW="100vw" as="main" p={4}>
-        <Flex minH="100vh" alignItems="center" justifyContent="center">
+        <Flex minH="85vh" alignItems="center" justifyContent="center">
           <Box
             bg="green.50"
             w="full"
@@ -226,7 +227,11 @@ export default function RegisterPage() {
               <Heading as="h4" fontSize="lg" mt={8}>
                 Endereço
               </Heading>
-              <Grid templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap={4} mt={4}>
+              <Grid
+                templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
+                gap={4}
+                mt={4}
+              >
                 <FormControl isRequired>
                   <FormLabel>Rua</FormLabel>
                   <Input

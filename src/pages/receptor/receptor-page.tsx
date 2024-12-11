@@ -58,7 +58,9 @@ export default function ReceptoresPage() {
       } catch (error: any) {
         toast({
           title: "Erro ao carregar receptores",
-          description: error.response?.data?.message || "Não foi possível carregar os dados.",
+          description:
+            error.response?.data?.message ||
+            "Não foi possível carregar os dados.",
           status: "error",
           duration: 3000,
           isClosable: true,
@@ -86,7 +88,6 @@ export default function ReceptoresPage() {
         receiver.email.toLowerCase().includes(query) ||
         receiver.phone.toLowerCase().includes(query) ||
         receiver.blood_type.toLowerCase().includes(query) ||
-
         format(new Date(receiver.birth_date), "dd/MM/yyyy").includes(query)
       );
     });
@@ -94,13 +95,19 @@ export default function ReceptoresPage() {
     setFilteredReceivers(filtered);
   };
 
-  const columns: Array<{ header: string; accessor?: keyof Receiver; render?: (row: Receiver) => JSX.Element }> = [
+  const columns: Array<{
+    header: string;
+    accessor?: keyof Receiver;
+    render?: (row: Receiver) => JSX.Element;
+  }> = [
     { header: "Nome", accessor: "name" },
     { header: "Email", accessor: "email" },
     { header: "Telefone", accessor: "phone" },
     {
       header: "Gênero",
-      render: (row) => <Text>{row.gender === "male" ? "Masculino" : "Feminino"}</Text>,
+      render: (row) => (
+        <Text>{row.gender === "male" ? "Masculino" : "Feminino"}</Text>
+      ),
     },
     { header: "Tipo Sanguíneo", accessor: "blood_type" },
     {
@@ -130,7 +137,7 @@ export default function ReceptoresPage() {
 
   return (
     <MainLayout>
-      <Flex minH="100vh" p={4} direction="column" gap={4}>
+      <Flex minH="85vh" p={4} direction="column" gap={4}>
         <Flex justifyContent="space-between" alignItems="center">
           <Text fontSize="2xl">Receptores</Text>
         </Flex>

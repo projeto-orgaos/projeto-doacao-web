@@ -1,4 +1,4 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Box,
   Flex,
@@ -83,7 +83,7 @@ export default function OrgaosPage() {
 
   return (
     <MainLayout>
-      <Flex minH="100vh" p={4}>
+      <Flex minH="85vh" p={4}>
         <Box as="main" flex="1">
           <Flex justifyContent="space-between" alignItems="center" mb={4}>
             <Text fontSize="2xl" mb={4}>
@@ -117,16 +117,21 @@ export default function OrgaosPage() {
                     <Td>{organ.id}</Td>
                     <Td>{organ.type.name}</Td>
                     <Td>{getStatusText(organ.status)}</Td>
-                    <Td>{organ.donor?.name || organ.recipient?.name || "N/A"}</Td>
+                    <Td>
+                      {organ.donor?.name || organ.recipient?.name || "N/A"}
+                    </Td>
                     <Td>{organ.donor ? "Doador" : "Receptor"}</Td>
                     <Td>
-                      {new Date(organ.expiration_date).toLocaleDateString("pt-BR", {
-                        day: "2-digit",
-                        month: "2-digit",
-                        year: "numeric",
-                        hour: "2-digit",
-                        minute: "2-digit",
-                      })}
+                      {new Date(organ.expiration_date).toLocaleDateString(
+                        "pt-BR",
+                        {
+                          day: "2-digit",
+                          month: "2-digit",
+                          year: "numeric",
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        }
+                      )}
                     </Td>
                     <Td>
                       <HStack>

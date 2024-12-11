@@ -31,7 +31,9 @@ export default function TiposOrgaosPage() {
       } catch (error: any) {
         toast({
           title: "Erro ao carregar tipos de órgãos",
-          description: error.response?.data?.message || "Não foi possível carregar os dados.",
+          description:
+            error.response?.data?.message ||
+            "Não foi possível carregar os dados.",
           status: "error",
           duration: 3000,
           isClosable: true,
@@ -58,7 +60,9 @@ export default function TiposOrgaosPage() {
     } catch (error: any) {
       toast({
         title: "Erro ao excluir tipo de órgão",
-        description: error.response?.data?.message || "Não foi possível excluir o tipo de órgão.",
+        description:
+          error.response?.data?.message ||
+          "Não foi possível excluir o tipo de órgão.",
         status: "error",
         duration: 3000,
         isClosable: true,
@@ -68,7 +72,7 @@ export default function TiposOrgaosPage() {
 
   return (
     <MainLayout>
-      <Flex minH="100vh" p={4}>
+      <Flex minH="85vh" p={4}>
         <Box as="main" flex="1">
           <Flex justifyContent="space-between" alignItems="center" mb={4}>
             <Text fontSize="2xl" fontWeight="bold">
@@ -84,7 +88,10 @@ export default function TiposOrgaosPage() {
               <Spinner size="xl" />
             </Flex>
           ) : (
-            <Grid templateColumns="repeat(auto-fit, minmax(300px, 1fr))" gap={4}>
+            <Grid
+              templateColumns="repeat(auto-fit, minmax(300px, 1fr))"
+              gap={4}
+            >
               {organTypes.map((organ) => (
                 <GridItem
                   key={organ.id}
@@ -104,7 +111,8 @@ export default function TiposOrgaosPage() {
                       </Text>
                     </Tooltip>
                     <Text fontSize="sm">
-                      <b>Preservação:</b> {organ.default_preservation_time_minutes} min
+                      <b>Preservação:</b>{" "}
+                      {organ.default_preservation_time_minutes} min
                     </Text>
                     <Text fontSize="sm">
                       <b>Post-mortem:</b> {organ.is_post_mortem ? "Sim" : "Não"}
@@ -115,12 +123,16 @@ export default function TiposOrgaosPage() {
                       {organ.compatibility_criteria.age_range
                         ? ` Idade: ${organ.compatibility_criteria.age_range[0]}-${organ.compatibility_criteria.age_range[1]}`
                         : " -"}
-                        <br />
+                      <br />
                       {organ.compatibility_criteria.blood_type
-                        ? `Tipos: ${organ.compatibility_criteria.blood_type.join(", ")}`
+                        ? `Tipos: ${organ.compatibility_criteria.blood_type.join(
+                            ", "
+                          )}`
                         : ""}
-                        <br />
-                      {organ.compatibility_criteria.hla_compatibility ? `, HLA` : ""}
+                      <br />
+                      {organ.compatibility_criteria.hla_compatibility
+                        ? `, HLA`
+                        : ""}
                     </Text>
                     <Flex justify="flex-end">
                       <IconButton
